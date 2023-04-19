@@ -1,6 +1,6 @@
 package com.example.tourguide
 
-class Place(val photo: Int,
+class Place(val placeImage: Int,
             val name: String,
             val address: String,
             val timeTable: String,

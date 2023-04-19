@@ -5,15 +5,33 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.tourguide.databinding.FragmentCinemaBinding
 
 class CinemaFragment : Fragment() {
+
+    lateinit var cinemaBinding: FragmentCinemaBinding
+
+    lateinit var cinemas: ArrayList<Place>
+
+    var manas = Place(R.drawable.cinema1, "Manas", "Московская 24",
+        "круглосуеочно", "1.5 km", "300 сом", "Welcome to Manas cinema!")
+    var alatoo = Place(R.drawable.cinema2, "Ala-Too", "Молодая Гвардия 124",
+        "open till 24:00", "1.0 km", "250 som", "Welcome to Ala-Too cinema")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cinema, container, false)
+
+        cinemaBinding = FragmentCinemaBinding.inflate(layoutInflater, container, false)
+
+        cinemaBinding.recyclerViewCinema.layoutManager = LinearLayoutManager(this.context)
+
+        cinemas = arrayListOf(manas, alatoo)
+        cinemaBinding.recyclerViewCinema.adapter = RecyclerViewAdapter(cinemas)
+
+        return cinemaBinding.root
     }
 
 }
