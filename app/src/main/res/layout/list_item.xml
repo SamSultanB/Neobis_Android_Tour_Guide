@@ -6,8 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_marginStart="16dp"
     android:layout_marginEnd="16dp"
-    android:layout_marginTop="8dp"
-    android:layout_marginBottom="8dp"
+    android:layout_marginTop="16dp"
     app:cardCornerRadius="20dp"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
@@ -54,6 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="TextView"
+            android:textColor="@color/black"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="@+id/text_name"
             app:layout_constraintTop_toBottomOf="@+id/text_name" />
@@ -64,6 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="TextView"
+            android:textColor="@color/black"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="@+id/text_name"
             app:layout_constraintTop_toBottomOf="@+id/text_address" />
@@ -74,6 +75,8 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
             android:text="TextView"
+            android:textColor="@color/black"
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/text_timeTable" />
 

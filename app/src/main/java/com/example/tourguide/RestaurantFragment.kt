@@ -15,10 +15,21 @@ class RestaurantFragment : Fragment() {
 
     lateinit var restaurants: ArrayList<Place>
 
-    var imperia = Place(R.drawable.restaurant2, "Imperia Pizza", "Aхунбаева 173",
+    var imperia = Place(R.drawable.restaurant3, "Imperia Pizza", "Aхунбаева 173",
         "open till 23:00", "1.5 km", "средний чек 800 сом", "Welcome to imperia pizza!")
-    var restaurant = Place(R.drawable.restaurant1, "Restaurant", "VEFA",
+    var restaurant = Place(R.drawable.restaurant4, "Restaurant", "VEFA",
         "open till 22:00", "1.0 km", "средний чек 1000 сом", "Welcome to our restaurant!")
+
+    var dodoPizza = Place(R.drawable.restaurant2, "Dodo Pizza", "Maksim Gorkiy 20",
+        "open till 21:00", "0.2 km", "average check 600 soms", "Welcome to Dodo Pizza!")
+
+    var navat = Place(R.drawable.restaurant3, "Navat", "Baitik Baatyr 211",
+        "open till 00:00", "0.3 km", "average check 500 soms", "Welcome to Navat!")
+
+    var classic = Place(R.drawable.restaurant1, "Classic", "Bishkek Park",
+        "open till 00:00", "2.5 km", "average check 1500 soms", "Welcome to Classic")
+    var novotel = Place(R.drawable.restaurant4, "Novotel", "Chyngyz Aitmatov 21",
+        "open 24/7", "3.0 km", "average check 1700 soms", "Welcome to Novotel")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,7 +40,7 @@ class RestaurantFragment : Fragment() {
 
         restaurantBinding.recyclerViewRestaurant.layoutManager = LinearLayoutManager(this.context)
 
-        restaurants = arrayListOf(imperia, restaurant)
+        restaurants = arrayListOf(imperia, restaurant, dodoPizza, navat, classic, novotel)
         restaurantBinding.recyclerViewRestaurant.adapter = RecyclerViewAdapter(restaurants)
 
         return restaurantBinding.root

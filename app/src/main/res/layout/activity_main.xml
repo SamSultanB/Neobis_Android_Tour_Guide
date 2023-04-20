@@ -16,16 +16,21 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Bishkek Guide"
+            android:text="BISHKEK GUIDE"
             android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
             android:layout_marginTop="20dp"
+            android:layout_marginStart="10dp"
+            android:fontFamily="sans-serif-medium"
             android:id="@+id/toolbar_title"/>
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_layout"
             android:layout_width="match_parent"
-            android:layout_height="15dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
+            app:tabTextColor="@color/black"
             app:tabIndicatorColor="@color/black"
             app:tabMode="scrollable" />
 
@@ -35,6 +40,7 @@
         android:id="@+id/fragment_holder"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingTop="8dp"
         android:background="@color/viewPager_background"/>
 
 </LinearLayout>
