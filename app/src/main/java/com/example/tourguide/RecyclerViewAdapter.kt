@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.tourguide.databinding.ListItemBinding
 
 class RecyclerViewAdapter(val places: ArrayList<Place>) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
@@ -16,14 +18,8 @@ class RecyclerViewAdapter(val places: ArrayList<Place>) : RecyclerView.Adapter<R
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
         val item = places[position]
-        holder.placeImage.setImageResource(item.placeImage)
-        holder.placeName.text = item.name
-        holder.placeAddress.text = item.address
-        holder.timeTable.text = item.timeTable
-        holder.distance.text = item.distance
-
+        holder.bind(item)
 
     }
 
@@ -33,12 +29,15 @@ class RecyclerViewAdapter(val places: ArrayList<Place>) : RecyclerView.Adapter<R
 
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+        val binding = ListItemBinding.bind(itemView)
+        fun bind(place: Place) = with(binding){
+            Glide.with(binding.placeImage).load(place.placeImage).into(binding.placeImage)
+            textName.text = place.name
+            textAddress.text = place.address
+            textTimeTable.text = place.timeTable
+            textDistance.text = place.distance
 
-        val placeImage: ImageView = itemView.findViewById(R.id.place_image)
-        val placeName: TextView = itemView.findViewById(R.id.text_name)
-        val placeAddress: TextView = itemView.findViewById(R.id.text_address)
-        val timeTable: TextView = itemView.findViewById(R.id.text_timeTable)
-        val distance: TextView = itemView.findViewById(R.id.text_distance)
+        }
 
     }
 

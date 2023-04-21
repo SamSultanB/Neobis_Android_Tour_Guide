@@ -15,7 +15,7 @@ class CinemaFragment : Fragment() {
     lateinit var cinemas: ArrayList<Place>
 
     var manas = Place(R.drawable.cinema1, "Manas", "Московская 24",
-        "круглосуеочно", "1.5 km", "300 сом", "Welcome to Manas cinema!")
+        "open 24/7", "1.5 km", "300 сом", "Welcome to Manas cinema!")
     var alatoo = Place(R.drawable.cinema2, "Ala-Too", "Молодая Гвардия 124",
         "open till 24:00", "1.0 km", "250 som", "Welcome to Ala-Too cinema")
 
