@@ -1,14 +1,16 @@
 package com.example.tourguide
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tourguide.databinding.FragmentCinemaBinding
 
-class CinemaFragment : Fragment() {
+class CinemaFragment : Fragment(), RecyclerViewAdapter.Listener{
 
     lateinit var cinemaBinding: FragmentCinemaBinding
 
@@ -29,9 +31,20 @@ class CinemaFragment : Fragment() {
         cinemaBinding.recyclerViewCinema.layoutManager = LinearLayoutManager(this.context)
 
         cinemas = arrayListOf(manas, alatoo)
-        cinemaBinding.recyclerViewCinema.adapter = RecyclerViewAdapter(cinemas)
+        cinemaBinding.recyclerViewCinema.adapter = RecyclerViewAdapter(cinemas, this)
 
         return cinemaBinding.root
+    }
+
+    override fun onClick(place: Place) {
+        var intent = Intent(activity, DetailsActivicty::class.java)
+        intent.putExtra("image", place.placeImage)
+        intent.putExtra("name", place.name)
+        intent.putExtra("address", place.address)
+        intent.putExtra("time table", place.timeTable)
+        intent.putExtra("distance", place.distance)
+        intent.putExtra("description", place.description)
+        startActivity(intent)
     }
 
 }

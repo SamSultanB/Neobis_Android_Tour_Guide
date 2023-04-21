@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.tourguide.databinding.ListItemBinding
 
-class RecyclerViewAdapter(val places: ArrayList<Place>) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
+class RecyclerViewAdapter(val places: ArrayList<Place>, val listener: Listener) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -19,7 +19,7 @@ class RecyclerViewAdapter(val places: ArrayList<Place>) : RecyclerView.Adapter<R
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = places[position]
-        holder.bind(item)
+        holder.bind(item, listener)
 
     }
 
@@ -30,15 +30,22 @@ class RecyclerViewAdapter(val places: ArrayList<Place>) : RecyclerView.Adapter<R
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val binding = ListItemBinding.bind(itemView)
-        fun bind(place: Place) = with(binding){
+        fun bind(place: Place, listener: Listener) = with(binding){
             Glide.with(binding.placeImage).load(place.placeImage).into(binding.placeImage)
             textName.text = place.name
             textAddress.text = place.address
             textTimeTable.text = place.timeTable
             textDistance.text = place.distance
+            textName.setOnClickListener {
+                listener.onClick(place)
+            }
 
         }
 
+    }
+
+    interface Listener{
+        fun onClick(place: Place)
     }
 
 }

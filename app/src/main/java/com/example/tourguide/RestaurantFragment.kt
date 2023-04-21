@@ -1,15 +1,17 @@
 package com.example.tourguide
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tourguide.databinding.FragmentCinemaBinding
 import com.example.tourguide.databinding.FragmentRestaurantBinding
 
-class RestaurantFragment : Fragment() {
+class RestaurantFragment : Fragment(), RecyclerViewAdapter.Listener {
 
     lateinit var restaurantBinding: FragmentRestaurantBinding
 
@@ -41,9 +43,20 @@ class RestaurantFragment : Fragment() {
         restaurantBinding.recyclerViewRestaurant.layoutManager = LinearLayoutManager(this.context)
 
         restaurants = arrayListOf(imperia, restaurant, dodoPizza, navat, classic, novotel)
-        restaurantBinding.recyclerViewRestaurant.adapter = RecyclerViewAdapter(restaurants)
+        restaurantBinding.recyclerViewRestaurant.adapter = RecyclerViewAdapter(restaurants, this)
 
         return restaurantBinding.root
+    }
+
+    override fun onClick(place: Place) {
+        var intent = Intent(activity, DetailsActivicty::class.java)
+        intent.putExtra("image", place.placeImage)
+        intent.putExtra("name", place.name)
+        intent.putExtra("address", place.address)
+        intent.putExtra("time table", place.timeTable)
+        intent.putExtra("distance", place.distance)
+        intent.putExtra("description", place.description)
+        startActivity(intent)
     }
 
 }
