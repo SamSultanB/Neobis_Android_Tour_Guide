@@ -43,7 +43,7 @@ class GymFragment : Fragment(), RecyclerViewAdapter.Listener {
     override fun callAction(number: String) {
         try {
             var call = Intent(Intent.ACTION_DIAL, Uri.parse("tel: $number"))
-            startActivity(call)
+            startActivity(Intent.createChooser(call, "Choose app"))
         }catch (e: ActivityNotFoundException){
             Toast.makeText(activity, "Something went wrong!", Toast.LENGTH_SHORT)
         }
@@ -52,8 +52,7 @@ class GymFragment : Fragment(), RecyclerViewAdapter.Listener {
     override fun openMap(location: String) {
         try {
             var map = Intent(Intent.ACTION_VIEW, Uri.parse("geo: $location"))
-            map.setPackage("com.google.android.apps.maps")
-            startActivity(map)
+            startActivity(Intent.createChooser(map, "Choose map"))
         }catch (e: ActivityNotFoundException){
             Toast.makeText(activity, "Can't open it", Toast.LENGTH_SHORT)
         }

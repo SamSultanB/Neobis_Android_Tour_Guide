@@ -18,8 +18,7 @@ class MainActivity : AppCompatActivity() {
         val tabLayout = binding.tabLayout
         val viewPager = binding.fragmentHolder
 
-        val adapter = ViewPagerAdapter(supportFragmentManager, lifecycle)
-        viewPager.adapter = adapter
+        viewPager.adapter = ViewPagerAdapter(supportFragmentManager, lifecycle)
 
         TabLayoutMediator(tabLayout, viewPager){tab, position ->
             when(position){
