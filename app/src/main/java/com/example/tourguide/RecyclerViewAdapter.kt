@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.tourguide.databinding.ListItemBinding
@@ -20,7 +21,12 @@ class RecyclerViewAdapter(val places: ArrayList<Place>, val listener: Listener) 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = places[position]
         holder.bind(item, listener)
-
+        var isExpandable: Boolean = places[position].expandable
+        holder.binding.additionsHolder.visibility = if(isExpandable) View.VISIBLE else View.GONE
+        holder.binding.holder.setOnClickListener {
+            places[position].expandable = !places[position].expandable
+            notifyItemChanged(position)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -36,10 +42,9 @@ class RecyclerViewAdapter(val places: ArrayList<Place>, val listener: Listener) 
             textAddress.text = place.address
             textTimeTable.text = place.timeTable
             textDistance.text = place.distance
-            textName.setOnClickListener {
-                listener.onClick(place)
-            }
-
+            textPrice.text = place.price
+            textDescription.text = place.description
+            textContact.text = place.contact
         }
 
     }

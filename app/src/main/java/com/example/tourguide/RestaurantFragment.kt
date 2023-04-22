@@ -18,20 +18,20 @@ class RestaurantFragment : Fragment(), RecyclerViewAdapter.Listener {
     lateinit var restaurants: ArrayList<Place>
 
     var imperia = Place(R.drawable.restaurant3, "Imperia Pizza", "Aхунбаева 173",
-        "open till 23:00", "1.5 km", "средний чек 800 сом", "Welcome to imperia pizza!")
+        "open till 23:00", "1.5 km", "средний чек 800 сом", "Welcome to imperia pizza!", "+996553125486")
     var restaurant = Place(R.drawable.restaurant4, "Restaurant", "VEFA",
-        "open till 22:00", "1.0 km", "средний чек 1000 сом", "Welcome to our restaurant!")
+        "open till 22:00", "1.0 km", "средний чек 1000 сом", "Welcome to our restaurant!", "+996553125486")
 
     var dodoPizza = Place(R.drawable.restaurant2, "Dodo Pizza", "Maksim Gorkiy 20",
-        "open till 21:00", "0.2 km", "average check 600 soms", "Welcome to Dodo Pizza!")
+        "open till 21:00", "0.2 km", "average check 600 soms", "Welcome to Dodo Pizza!", "+996553125486")
 
     var navat = Place(R.drawable.restaurant3, "Navat", "Baitik Baatyr 211",
-        "open till 00:00", "0.3 km", "average check 500 soms", "Welcome to Navat!")
+        "open till 00:00", "0.3 km", "average check 500 soms", "Welcome to Navat!", "+996553125486")
 
     var classic = Place(R.drawable.restaurant1, "Classic", "Bishkek Park",
-        "open till 00:00", "2.5 km", "average check 1500 soms", "Welcome to Classic")
+        "open till 00:00", "2.5 km", "average check 1500 soms", "Welcome to Classic", "+996553125486")
     var novotel = Place(R.drawable.restaurant4, "Novotel", "Chyngyz Aitmatov 21",
-        "open 24/7", "3.0 km", "average check 1700 soms", "Welcome to Novotel")
+        "open 24/7", "3.0 km", "average check 1700 soms", "Welcome to Novotel", "+996553125486")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,14 +49,7 @@ class RestaurantFragment : Fragment(), RecyclerViewAdapter.Listener {
     }
 
     override fun onClick(place: Place) {
-        var intent = Intent(activity, DetailsActivicty::class.java)
-        intent.putExtra("image", place.placeImage)
-        intent.putExtra("name", place.name)
-        intent.putExtra("address", place.address)
-        intent.putExtra("time table", place.timeTable)
-        intent.putExtra("distance", place.distance)
-        intent.putExtra("description", place.description)
-        startActivity(intent)
+
     }
 
 }

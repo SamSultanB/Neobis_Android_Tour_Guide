@@ -6,4 +6,6 @@ class Place(val placeImage: Int,
             val timeTable: String,
             val distance: String,
             val price: String,
-            val description: String)
+            val description: String,
+            val contact: String,
+            var expandable: Boolean = false)

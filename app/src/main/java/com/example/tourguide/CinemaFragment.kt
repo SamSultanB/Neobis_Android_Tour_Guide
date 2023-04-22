@@ -17,9 +17,9 @@ class CinemaFragment : Fragment(), RecyclerViewAdapter.Listener{
     lateinit var cinemas: ArrayList<Place>
 
     var manas = Place(R.drawable.cinema1, "Manas", "Московская 24",
-        "open 24/7", "1.5 km", "300 сом", "Welcome to Manas cinema!")
+        "open 24/7", "1.5 km", "300 сом", "Welcome to Manas cinema!", "+996553125486")
     var alatoo = Place(R.drawable.cinema2, "Ala-Too", "Молодая Гвардия 124",
-        "open till 24:00", "1.0 km", "250 som", "Welcome to Ala-Too cinema")
+        "open till 24:00", "1.0 km", "250 som", "Welcome to Ala-Too cinema", "+996553125486")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,14 +37,14 @@ class CinemaFragment : Fragment(), RecyclerViewAdapter.Listener{
     }
 
     override fun onClick(place: Place) {
-        var intent = Intent(activity, DetailsActivicty::class.java)
-        intent.putExtra("image", place.placeImage)
-        intent.putExtra("name", place.name)
-        intent.putExtra("address", place.address)
-        intent.putExtra("time table", place.timeTable)
-        intent.putExtra("distance", place.distance)
-        intent.putExtra("description", place.description)
-        startActivity(intent)
+//        var intent = Intent(activity, DetailsActivicty::class.java)
+//        intent.putExtra("image", place.placeImage)
+//        intent.putExtra("name", place.name)
+//        intent.putExtra("address", place.address)
+//        intent.putExtra("time table", place.timeTable)
+//        intent.putExtra("distance", place.distance)
+//        intent.putExtra("description", place.description)
+//        startActivity(intent)
     }
 
 }
