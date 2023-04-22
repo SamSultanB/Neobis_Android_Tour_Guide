@@ -8,4 +8,5 @@ class Place(val placeImage: Int,
             val price: String,
             val description: String,
             val contact: String,
+            val locationMap: String,
             var expandable: Boolean = false)

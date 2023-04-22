@@ -14,16 +14,16 @@
         android:background="@color/appBar_color">
 
         <TextView
+            android:id="@+id/toolbar_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="BISHKEK GUIDE"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:layout_marginTop="20dp"
             android:layout_marginStart="10dp"
-            android:fontFamily="sans-serif-medium"
-            android:id="@+id/toolbar_title"/>
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/alfa_slab_one"
+            android:text="BISHKEK GUIDE"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_layout"

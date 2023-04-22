@@ -1,6 +1,8 @@
 package com.example.tourguide
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -19,9 +21,9 @@ class GymFragment : Fragment(), RecyclerViewAdapter.Listener {
     lateinit var gyms: ArrayList<Place>
 
     var delta = Place(R.drawable.gym1, "Delta", "Akhmatbek Suyunbaev 140",
-        "open till 00:00", "2.5 km", "500 soms", "Welcome to Delta gym!","+996553125486")
+        "open till 00:00", "2.5 km", "500 soms", "Welcome to Delta gym! The best gym in the world. We have all kind of equipments!","+996553125486", "70000001035410799")
     var sixPound = Place(R.drawable.gym2, "Limon", "Lev Tolstoy 34a",
-        "open till 23:00", "3.0 km", "400 soms", "Welcome to our Limon gym!", "+996553125486")
+        "open till 23:00", "3.0 km", "400 soms", "Welcome to our Limon gym! The best gym but we don't have all kind of equipments, use your imagination to train with equipment that you have!", "+996553125486", "70000001035410799")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,15 +40,23 @@ class GymFragment : Fragment(), RecyclerViewAdapter.Listener {
         return gymBinding.root
     }
 
-    override fun onClick(place: Place) {
-//        var intent = Intent(activity, DetailsActivicty::class.java)
-//        intent.putExtra("image", place.placeImage)
-//        intent.putExtra("name", place.name)
-//        intent.putExtra("address", place.address)
-//        intent.putExtra("time table", place.timeTable)
-//        intent.putExtra("distance", place.distance)
-//        intent.putExtra("description", place.description)
-//        startActivity(intent)
+    override fun callAction(number: String) {
+        try {
+            var call = Intent(Intent.ACTION_DIAL, Uri.parse("tel: $number"))
+            startActivity(call)
+        }catch (e: ActivityNotFoundException){
+            Toast.makeText(activity, "Something went wrong!", Toast.LENGTH_SHORT)
+        }
+    }
+
+    override fun openMap(location: String) {
+        try {
+            var map = Intent(Intent.ACTION_VIEW, Uri.parse("geo: $location"))
+            map.setPackage("com.google.android.apps.maps")
+            startActivity(map)
+        }catch (e: ActivityNotFoundException){
+            Toast.makeText(activity, "Can't open it", Toast.LENGTH_SHORT)
+        }
     }
 
 

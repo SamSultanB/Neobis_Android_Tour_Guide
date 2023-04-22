@@ -55,7 +55,7 @@
                 android:layout_marginStart="10dp"
                 android:text="Text"
                 android:textColor="@color/black"
-                android:textSize="16sp"
+                android:textSize="20sp"
                 app:layout_constraintStart_toEndOf="@+id/image_holder"
                 app:layout_constraintTop_toTopOf="@+id/image_holder" />
 
@@ -65,8 +65,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="TextView"
-                android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textColor="@color/clickable_text"
+                android:textSize="15sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/text_name"
                 app:layout_constraintTop_toBottomOf="@+id/text_name" />
 
@@ -77,7 +78,7 @@
                 android:layout_marginTop="5dp"
                 android:fontFamily="sans-serif-light"
                 android:text="TextView"
-                android:textColor="@color/black"
+                android:textColor="@color/teal_700"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="@+id/text_name"
                 app:layout_constraintTop_toBottomOf="@+id/text_address" />
@@ -89,7 +90,7 @@
                 android:layout_marginEnd="10dp"
                 android:fontFamily="sans-serif-light"
                 android:text="TextView"
-                android:textColor="@color/black"
+                android:textColor="@color/teal_700"
                 android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/text_timeTable" />
@@ -113,7 +114,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:text="TextView"
-                android:textColor="@color/black"
+                android:textColor="@color/teal_700"
                 android:textSize="12sp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/text_description"
@@ -127,7 +128,8 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:text="TextView"
-                android:textColor="@color/black"
+                android:textColor="@color/teal_700"
+                android:fontFamily="sans-serif-light"
                 android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/text_price"
@@ -140,9 +142,10 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
-                android:text="Text fefdfdfdfdf"
-                android:textColor="@color/black"
-                android:textSize="12sp"
+                android:text="Text"
+                android:textColor="@color/clickable_text"
+                android:textStyle="bold"
+                android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="@+id/text_description"
                 app:layout_constraintStart_toStartOf="@id/text_description"
                 app:layout_constraintTop_toBottomOf="@id/text_description" />

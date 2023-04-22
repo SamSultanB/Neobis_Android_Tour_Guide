@@ -45,12 +45,21 @@ class RecyclerViewAdapter(val places: ArrayList<Place>, val listener: Listener) 
             textPrice.text = place.price
             textDescription.text = place.description
             textContact.text = place.contact
+
+            //clicks
+            textAddress.setOnClickListener {
+                listener.openMap(place.locationMap)
+            }
+            textContact.setOnClickListener {
+                listener.callAction(place.contact)
+            }
         }
 
     }
 
     interface Listener{
-        fun onClick(place: Place)
+        fun callAction(number: String)
+        fun openMap(location: String)
     }
 
 }
