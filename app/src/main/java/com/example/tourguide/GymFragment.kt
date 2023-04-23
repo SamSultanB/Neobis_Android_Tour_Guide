@@ -58,5 +58,14 @@ class GymFragment : Fragment(), RecyclerViewAdapter.Listener {
         }
     }
 
+    override fun itemClick(place: Place) {
+        val bundle = Bundle()
+        bundle.putParcelable("place", place)
+        val fragment = DetailsFragment()
+        fragment.arguments = bundle
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.hostFragment, fragment).commit()
+    }
+
 
 }

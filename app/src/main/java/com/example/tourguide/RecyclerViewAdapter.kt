@@ -21,11 +21,8 @@ class RecyclerViewAdapter(val places: ArrayList<Place>, val listener: Listener) 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = places[position]
         holder.bind(item, listener)
-        var isExpandable: Boolean = places[position].expandable
-        holder.binding.additionsHolder.visibility = if(isExpandable) View.VISIBLE else View.GONE
         holder.binding.holder.setOnClickListener {
-            places[position].expandable = !places[position].expandable
-            notifyItemChanged(position)
+            listener.itemClick(item)
         }
     }
 
@@ -37,21 +34,16 @@ class RecyclerViewAdapter(val places: ArrayList<Place>, val listener: Listener) 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val binding = ListItemBinding.bind(itemView)
         fun bind(place: Place, listener: Listener) = with(binding){
-            Glide.with(binding.placeImage).load(place.placeImage).into(binding.placeImage)
+            Glide.with(binding.placeImage)
+                .load(place.placeImage)
+                .into(binding.placeImage)
             textName.text = place.name
             textAddress.text = place.address
             textTimeTable.text = place.timeTable
             textDistance.text = place.distance
-            textPrice.text = place.price
-            textDescription.text = place.description
-            textContact.text = place.contact
-
             //clicks
             textAddress.setOnClickListener {
                 listener.openMap(place.locationMap)
-            }
-            textContact.setOnClickListener {
-                listener.callAction(place.contact)
             }
         }
 
@@ -60,6 +52,7 @@ class RecyclerViewAdapter(val places: ArrayList<Place>, val listener: Listener) 
     interface Listener{
         fun callAction(number: String)
         fun openMap(location: String)
+        fun itemClick(place: Place)
     }
 
 }

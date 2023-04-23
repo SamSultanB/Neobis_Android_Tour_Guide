@@ -15,18 +15,5 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val tabLayout = binding.tabLayout
-        val viewPager = binding.fragmentHolder
-
-        viewPager.adapter = ViewPagerAdapter(supportFragmentManager, lifecycle)
-
-        TabLayoutMediator(tabLayout, viewPager){tab, position ->
-            when(position){
-                0 -> tab.text = "Restaurants"
-                1 -> tab.text = "Gym centers"
-                2 -> tab.text = "Cinemas"
-            }
-        }.attach()
-
     }
 }
