@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tourguide.databinding.FragmentCinemaBinding
 import com.example.tourguide.databinding.FragmentRestaurantBinding
@@ -71,10 +72,7 @@ class RestaurantFragment : Fragment(), RecyclerViewAdapter.Listener {
     override fun itemClick(place: Place) {
         val bundle = Bundle()
         bundle.putParcelable("place", place)
-        val fragment = DetailsFragment()
-        fragment.arguments = bundle
-        parentFragmentManager.beginTransaction()
-            .replace(R.id.hostFragment, fragment).commit()
+        findNavController().navigate(R.id.navigateToDetailsFragment, bundle)
     }
 
 

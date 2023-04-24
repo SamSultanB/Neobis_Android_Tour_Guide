@@ -21,6 +21,8 @@
         tools:layout="@layout/fragment_details" >
         <action
             android:id="@+id/navigateToHostFragment"
-            app:destination="@id/hostFragment" />
+            app:destination="@id/hostFragment"
+            app:popUpTo="@id/hostFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

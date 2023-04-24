@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.tourguide.databinding.FragmentDetailsBinding
 
@@ -35,6 +36,9 @@ class DetailsFragment : Fragment() {
             detailDesciption.text = place?.description
             detailName2.text = place?.name
             detailContact.text = place?.contact
+        }
+        detailBinding.goBackButton.setOnClickListener {
+            findNavController().navigate(R.id.navigateToHostFragment)
         }
 
     }

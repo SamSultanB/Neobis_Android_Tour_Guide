@@ -10,14 +10,17 @@
 
     <com.google.android.material.appbar.CollapsingToolbarLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_marginBottom="-25dp"
+        android:layout_height="275dp"
+        android:layout_marginBottom="-40dp"
+        android:background="@color/teal_200"
         >
 
         <ImageView
             android:id="@+id/image"
             android:layout_width="match_parent"
-            android:layout_height="300dp">
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/cinema1">
         </ImageView>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,6 +34,9 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="45dp"
                 android:text="TextView"
+                android:textColor="@color/clickable_text"
+                android:textSize="14sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
@@ -40,6 +46,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:text="TextView"
+                android:textColor="@color/teal_700"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/detail_address"
                 app:layout_constraintStart_toStartOf="@+id/detail_address" />
 
@@ -47,10 +56,25 @@
                 android:id="@+id/detail_contact"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="240dp"
-                android:text="TextView"
+                android:layout_marginStart="100dp"
+                android:layout_marginEnd="16dp"
+                android:text="+996552151547"
+                android:textColor="@color/clickable_text"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/detail_address"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/detail_name" />
+
+            <ImageButton
+                android:id="@+id/goBackButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="2dp"
+                android:src="?attr/homeAsUpIndicator"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.appbar.CollapsingToolbarLayout>
@@ -58,10 +82,11 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/viewPager_background"
+        android:layout_marginBottom="-20dp"
         app:cardCornerRadius="25dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:background="@color/viewPager_background"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -72,7 +97,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
+                android:fontFamily="sans-serif-thin"
                 android:text="TextView"
+                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -82,7 +109,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="82dp"
                 android:layout_marginEnd="16dp"
+                android:fontFamily="sans-serif-thin"
                 android:text="TextView"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/detail_timeTable"
                 app:layout_constraintTop_toTopOf="@+id/detail_timeTable" />
@@ -94,6 +123,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="16dp"
                 android:text="TextView"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/detail_timeTable"
@@ -106,6 +136,7 @@
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="16dp"
                 android:text="TextView"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/detail_price"
@@ -117,7 +148,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:layout_marginEnd="16dp"
+                android:fontFamily="sans-serif-thin"
                 android:text="TextView"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/detail_name2"
